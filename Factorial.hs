@@ -1,15 +1,11 @@
---Cálculo de fatorial
+import Control.Exception ()
+import Data.Time ( diffUTCTime, getCurrentTime )
 
 factorial 0 = 1
 factorial n = n * factorial (n-1)
 
---Como testar no terminal:
--- $ ghci
--- $ load: Factorial.hs
--- $ :set +s
--- $ factorial 8
-
--- Resultado:
--- $ 40320
--- $ (0.01 secs, 84,968 bytes)
--- 10 milisegundos
+main = do
+    start <- getCurrentTime
+    print ("Result: " ++ show (factorial 120))
+    end <- getCurrentTime
+    print ("Time: " ++ show (diffUTCTime end start))
